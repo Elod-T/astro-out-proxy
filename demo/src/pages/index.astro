@@ -5,7 +5,9 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
   <h1>🧑‍🚀 Hello, Astronaut!</h1>
   <p>
-    Welcome to the official <a href="">astro-out-proxy</a> website
+    Welcome to the official <a href="https://github.com/Elod-T/astro-out-proxy"
+      >astro-out-proxy</a
+    > website
   </p>
   <p>
     This is a normal internal link:
@@ -13,7 +15,15 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   </p>
 
   <p>
-    This however is an external link: <a href="https://google.com">Google</a> and
-    it redirects to the out proxy.
+    This however is an external link: <a href="https://google.com">Google</a>
+    and it redirects to the out proxy.
+  </p>
+
+  <p>
+    And altought this is an external link: <a
+      href="https://astro.build"
+      data-safe>Astro</a
+    > it has the <code>data-safe</code> attribute and it will not redirect to the
+    proxy and work as expected.
   </p>
 </BaseLayout>
