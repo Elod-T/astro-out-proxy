@@ -1,3 +1,5 @@
+<img src="https://github.com/Elod-T/astro-out-proxy/assets/33983644/728745c5-0dbd-47f7-a4d1-d28fd897cdfb" widht="200" height="200" />
+
 # Astro Out Proxy
 
 Astro Out Proxy is a JavaScript library that enhances the user experience by providing a warning prompt before they leave the website upon clicking an external link. This feature helps prevent accidental navigation away from the current page and gives users the opportunity to confirm their action.
