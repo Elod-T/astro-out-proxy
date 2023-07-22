@@ -1,0 +1,30 @@
+{
+  "name": "astro-out-proxy",
+  "author": "Elod Tobak <tobakelod@gmail.com>",
+  "license": "MIT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "keywords": [
+    "astro-integration",
+    "astro-component",
+    "withastro",
+    "ui",
+    "proxy",
+    "link",
+    "external link"
+  ],
+  "dependencies": {
+    "node-html-parser": "^6.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.4",
+    "astro": "^2.9.1"
+  },
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./components/OutPage": "./src/components/OutPage.astro",
+    "./components/OutLinkDevModeComponent": "./src/components/OutLinkDevModeComponent.astro"
+  }
+}

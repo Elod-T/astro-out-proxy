@@ -1,0 +1,43 @@
+---
+import type { Options } from "../interfaces/options";
+
+interface Props {
+    options: Options
+}
+
+const { options } = Astro.props;
+
+const defaultOptions: Options = {
+    safeAttribute: "data-safe"
+};
+
+const allOptions = { ...defaultOptions, ...options };
+
+// @ts-ignore TS doesn't detect @types/node even though it's installed
+const dev = process.env.NODE_ENV === "development";
+---
+
+{dev &&
+    <script define:vars={{ allOptions }}>
+    window.onload = function () {
+        const links = document.querySelectorAll("a");
+
+        // can't import lib/links.ts beacuse the script is inline
+        for (const link of links) {
+            const safe = link.getAttribute(allOptions.safeAttribute);
+            if (safe != undefined) continue;
+
+            const href = link.getAttribute("href");
+            if (href?.startsWith("http")) {
+                link.setAttribute(
+                    "href",
+                    `/out?redirect=${encodeURIComponent(href)}&target=${link.getAttribute("target") ?? ""
+                    }&rel=${link.getAttribute("rel") ?? ""}`
+                );
+                link.removeAttribute("target");
+                link.removeAttribute("rel");
+            }
+        }
+    }
+    </script>
+}

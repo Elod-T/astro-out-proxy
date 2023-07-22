@@ -1,0 +1,7 @@
+{
+  "name": "astro-out-proxy",
+  "workspaces": [
+    "demo",
+    "packages/*"
+  ]
+}

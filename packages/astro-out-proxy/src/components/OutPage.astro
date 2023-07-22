@@ -1,0 +1,75 @@
+---
+interface Props {
+    customUi?: boolean;
+}
+
+const { customUi } = Astro.props;
+---
+{customUi ? (<slot />) : (
+<section style={{
+    height: "100vh",
+    width: "100vw",
+    display: "grid",
+    placeItems: "center",
+}}>
+    <div style={{
+        backgroundColor: "lightgray",
+        padding: "1rem",
+        borderRadius: "1rem",
+        width: "20rem",
+        textAlign: "center",
+    }}>
+        <h1 id="defaultText" style={{
+            fontSize: "1.2rem",
+            fontWeight: "bold",
+        }}>
+        </h1>
+        <p>
+            Are you sure you want to leave?
+        </p>
+
+        <div style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "100%",
+            marginTop: "1rem",
+            gap: "1rem",
+        }}>
+            <a href="javascript:history.back()" style={{
+                backgroundColor: "white",
+                padding: "0.5rem 1rem",
+                borderRadius: "0.5rem",
+            }}>Stay</a>
+            <a id="leaveButton" style={{
+                backgroundColor: "white",
+                padding: "0.5rem 1rem",
+                borderRadius: "0.5rem",
+            }}>Leave</a>
+        </div>
+    </div>
+</section>
+)}
+
+<script>
+const text = document.getElementById("defaultText");
+const params = new URLSearchParams(window.location.search);
+
+if (text) {
+    text.innerHTML = `Warning! <i style="color:blue">${params.get("redirect")}</i> is not related to <i style="color:blue">${window.location.origin}</i>`
+}
+
+
+const leave = document.getElementById("leaveButton");
+
+if (leave) {
+    leave.setAttribute("href", params.get("redirect") || "/");
+
+    if (params.get("target")) {
+        leave.setAttribute("target", params.get("target") ?? "");
+    }
+
+    if (params.get("rel")) {
+        leave.setAttribute("rel", params.get("rel") ?? "");
+    }
+}
+</script>
