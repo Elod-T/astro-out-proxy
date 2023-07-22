@@ -1,9 +1,17 @@
 {
   "name": "astro-out-proxy",
   "author": "Elod Tobak <tobakelod@gmail.com>",
+  "homepage": "https://github.com/Elod-T/astro-out-proxy",
+  "bugs": {
+    "url": "https://github.com/Elod-T/astro-out-proxy/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Elod-T/astro-out-proxy.git"
+  },
   "license": "MIT",
   "version": "1.0.0",
-  "description": "",
+  "description": "astro-out-proxy provides an easy way to intercept external links in an Astro app",
   "main": "index.ts",
   "keywords": [
     "astro-integration",
