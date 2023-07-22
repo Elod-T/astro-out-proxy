@@ -1,6 +1,10 @@
+<img src="https://github.com/Elod-T/astro-out-proxy/assets/33983644/728745c5-0dbd-47f7-a4d1-d28fd897cdfb" widht="200" height="200" />
+
 # Astro Out Proxy
 
 Astro Out Proxy is a JavaScript library that enhances the user experience by providing a warning prompt before they leave the website upon clicking an external link. This feature helps prevent accidental navigation away from the current page and gives users the opportunity to confirm their action.
+
+# Demo url: https://astro-out-proxy.vercel.app/
 
 ## Why?
 
@@ -49,6 +53,26 @@ export default defineConfig({
 ```
 
 ## Usage
+
+### Create the proxy route
+
+**IMPORTANT** as of now only `pages/out.astro` is supported, hang on tight for updates!
+
+Create `pages/out.astro` with the code below. The library comes with a simple design out of the box. If you want to use your own styles you can do that by wrapping it with the `<OutPage />` component and setting the `customUi` attribute. Make sure to add the id `leaveButton` to your leave button to use the script that fills out the href for it. Or you can create your own logic!
+
+```astro
+---
+import OutPage from "astro-out-proxy/components/OutPage";
+---
+
+<!-- Default UI -->
+<OutPage />
+
+<!-- Custom UI - you must add the customUi parameter for this to work!-->
+<OutPage customUi>
+  <a id="leaveButton">Leave</a>
+</OutPage>
+```
 
 ### Build-time
 If you installed via astro-add or added the integration in the astro config file manually, the build step is already configured. The integration will automatically change re-write the links for you.
