@@ -9,8 +9,9 @@ export default function modifyLinks(
 
   for (const link of links) {
     const safe = link.getAttribute(allOptions.safeAttribute);
+    const id = link.getAttribute("id");
 
-    if (safe != undefined) continue;
+    if (safe != undefined || id == allOptions.leaveButtonId) continue;
 
     const href = link.getAttribute("href");
     if (href?.startsWith("http")) {
