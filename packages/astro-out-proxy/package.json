@@ -10,7 +10,7 @@
     "url": "git+https://github.com/Elod-T/astro-out-proxy.git"
   },
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "astro-out-proxy provides an easy way to intercept external links in an Astro app",
   "main": "index.ts",
   "keywords": [
