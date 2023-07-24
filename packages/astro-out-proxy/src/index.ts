@@ -7,6 +7,7 @@ import modifyLinks from "./lib/links.js";
 
 const defaultOptions: Options = {
   safeAttribute: "data-safe",
+  leaveButtonId: "leaveButton",
 };
 
 function fromDir(startPath: string, filter: string) {
