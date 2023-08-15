@@ -1,9 +1,19 @@
 ---
+import type { Options } from "../interfaces/options";
 interface Props {
     customUi?: boolean;
+    options: Options;
 }
 
-const { customUi } = Astro.props;
+const { customUi, options } = Astro.props;
+
+const defaultOptions: Options = {
+    safeAttribute: "data-safe",
+    leaveButtonId: "leave",
+    redirectParameter: "redirect",
+};
+
+const allOptions = { ...defaultOptions, ...options };
 ---
 {customUi ? (<slot />) : (
 <section style={{
@@ -50,19 +60,19 @@ const { customUi } = Astro.props;
 </section>
 )}
 
-<script>
+<script define:vars={{ allOptions }}>
 const text = document.getElementById("defaultText");
 const params = new URLSearchParams(window.location.search);
 
 if (text) {
-    text.innerHTML = `Warning! <i style="color:blue">${params.get("redirect")}</i> is not related to <i style="color:blue">${window.location.origin}</i>`
+    text.innerHTML = `Warning! <i style="color:blue">${params.get(allOptions.redirectParameter)}</i> is not related to <i style="color:blue">${window.location.origin}</i>`
 }
 
 
 const leave = document.getElementById("leaveButton");
 
 if (leave) {
-    leave.setAttribute("href", params.get("redirect") || "/");
+    leave.setAttribute("href", params.get(allOptions.redirectParameter) || "/");
 
     if (params.get("target")) {
         leave.setAttribute("target", params.get("target") ?? "");

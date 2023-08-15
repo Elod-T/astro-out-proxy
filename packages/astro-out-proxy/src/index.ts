@@ -8,6 +8,7 @@ import modifyLinks from "./lib/links.js";
 const defaultOptions: Options = {
   safeAttribute: "data-safe",
   leaveButtonId: "leaveButton",
+  redirectParameter: "redirect",
 };
 
 function fromDir(startPath: string, filter: string) {

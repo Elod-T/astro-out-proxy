@@ -10,6 +10,7 @@ const { options } = Astro.props;
 const defaultOptions: Options = {
     safeAttribute: "data-safe",
     leaveButtonId: "leave",
+    redirectParameter: "redirect"
 };
 
 const allOptions = { ...defaultOptions, ...options };
@@ -34,7 +35,7 @@ const dev = process.env.NODE_ENV === "development";
             if (href?.startsWith("http")) {
                 link.setAttribute(
                     "href",
-                    `/out?redirect=${encodeURIComponent(href)}&target=${link.getAttribute("target") ?? ""
+                    `/out?${params.get(allOptions.redirectParameter)}=${encodeURIComponent(href)}&target=${link.getAttribute("target") ?? ""
                     }&rel=${link.getAttribute("rel") ?? ""}`
                 );
                 link.removeAttribute("target");
