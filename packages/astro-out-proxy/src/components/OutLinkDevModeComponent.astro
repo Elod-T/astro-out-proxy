@@ -1,18 +1,12 @@
 ---
 import type { Options } from "../interfaces/options";
+import { defaultOptions } from "../index";
 
 interface Props {
-    options: Options
+    options: Partial<Options>
 }
 
 const { options } = Astro.props;
-
-const defaultOptions: Options = {
-    safeAttribute: "data-safe",
-    leaveButtonId: "leave",
-    redirectParameter: "redirect"
-};
-
 const allOptions = { ...defaultOptions, ...options };
 
 // @ts-ignore TS doesn't detect @types/node even though it's installed

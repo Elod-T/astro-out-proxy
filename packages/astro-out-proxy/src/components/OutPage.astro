@@ -1,18 +1,13 @@
 ---
 import type { Options } from "../interfaces/options";
+import { defaultOptions } from "../index";
+
 interface Props {
     customUi?: boolean;
-    options: Options;
+    options: Partial<Options>;
 }
 
 const { customUi, options } = Astro.props;
-
-const defaultOptions: Options = {
-    safeAttribute: "data-safe",
-    leaveButtonId: "leave",
-    redirectParameter: "redirect",
-};
-
 const allOptions = { ...defaultOptions, ...options };
 ---
 {customUi ? (<slot />) : (
