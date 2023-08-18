@@ -5,9 +5,10 @@ import type { Options } from "./interfaces/options.js";
 import type { AstroIntegration } from "astro";
 import modifyLinks from "./lib/links.js";
 
-const defaultOptions: Options = {
+export const defaultOptions: Options = {
   safeAttribute: "data-safe",
   leaveButtonId: "leaveButton",
+  redirectParameter: "redirect",
 };
 
 function fromDir(startPath: string, filter: string) {

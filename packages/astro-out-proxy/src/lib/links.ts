@@ -17,7 +17,7 @@ export default function modifyLinks(
     if (href?.startsWith("http")) {
       link.setAttribute(
         "href",
-        `/out?redirect=${encodeURIComponent(href)}&target=${
+        `/out?${allOptions.redirectParameter}=${encodeURIComponent(href)}&target=${
           link.getAttribute("target") ?? ""
         }&rel=${link.getAttribute("rel") ?? ""}`
       );
