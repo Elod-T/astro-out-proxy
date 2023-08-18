@@ -29,7 +29,7 @@ const dev = process.env.NODE_ENV === "development";
             if (href?.startsWith("http")) {
                 link.setAttribute(
                     "href",
-                    `/out?${params.get(allOptions.redirectParameter)}=${encodeURIComponent(href)}&target=${link.getAttribute("target") ?? ""
+                    `/out?${allOptions.redirectParameter}=${encodeURIComponent(href)}&target=${link.getAttribute("target") ?? ""
                     }&rel=${link.getAttribute("rel") ?? ""}`
                 );
                 link.removeAttribute("target");

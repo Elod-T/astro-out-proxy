@@ -127,6 +127,18 @@ This will generate the following example:
 
 `https://website.domain/out?`**`customParam`**`=https%3A%2F%2Fwww.google.com&target=&rel=`
 
+Then, pass this custom parameter into the OutPage component like bellow: 
+
+```js
+<OutPage options={{redirectParameter: "customParam"}} />
+```
+
+You can achieve the same result by using the OutLinkDevModeComponent:
+
+```js
+<OutLinkDevModeComponent options={{redirectParameter: "customParam"}} />
+```
+
 ## Contributing
 
 Contributions to Astro Out Proxy are welcome! If you find any issues or want to suggest improvements, please open an issue or submit a pull request on the project's GitHub repository.
